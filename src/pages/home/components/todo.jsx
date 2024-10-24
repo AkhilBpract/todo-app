@@ -16,7 +16,7 @@ import useHandleUseForm from "../hooks/use-handle-use-form";
 const getList = () => JSON.parse(localStorage.getItem("todoList")) || [];
 const Todo = () => {
   const [tasks, setTasks] = useState(getList());
-  console.log(tasks);
+
   const [addTod, setAddTodo] = useState(false);
 
   const handleSelectTask = (id) => {
@@ -87,7 +87,7 @@ const TodoList = ({ tasks, handleSelectTask }) => {
       <Stack>
         {tasks.map(({ id, status, title }) => (
           <Stack direction="row" alignItems="center">
-            <Checkbox value={status} onChange={() => handleSelectTask(id)} />
+            <Checkbox checked={status} value={status} onChange={() => handleSelectTask(id)} />
             <Typography variant="subtitle2">{title}</Typography>
           </Stack>
         ))}
